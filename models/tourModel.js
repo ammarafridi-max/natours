@@ -144,12 +144,10 @@ tourSchema.pre('save', function (next) {
 // });
 
 // tourSchema.pre('save', function(next) {
-//   console.log('Will save document...');
 //   next();
 // });
 
 // tourSchema.post('save', function(doc, next) {
-//   console.log(doc);
 //   next();
 // });
 
@@ -171,16 +169,10 @@ tourSchema.pre(/^find/, function (next) {
   next();
 });
 
-tourSchema.post(/^find/, function (docs, next) {
-  console.log(`Query took ${Date.now() - this.start} milliseconds!`);
-  next();
-});
-
 // AGGREGATION MIDDLEWARE
 // tourSchema.pre('aggregate', function(next) {
 //   this.pipeline().unshift({ $match: { secretTour: { $ne: true } } });
 
-//   console.log(this.pipeline());
 //   next();
 // });
 
