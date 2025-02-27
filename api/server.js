@@ -8,7 +8,7 @@ process.on('uncaughtException', (err) => {
 });
 
 dotenv.config({ path: './config.env' });
-const app = require('./app');
+const app = require('./index');
 
 const DB = process.env.DATABASE;
 
@@ -28,6 +28,10 @@ process.on('unhandledRejection', (err) => {
   server.close(() => {
     process.exit(1);
   });
+});
+
+process.on('SIGTERM', () => {
+  console.log('SIGTERM received. Shutting down...');
 });
 
 module.exports = app;
